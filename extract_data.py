@@ -17,6 +17,16 @@ def rename_scans():
         i += 1
 
 def main():
+    # Test
+    if not os.path.exists('scans'):
+        print("Place all your images in the folder 'scans'.")
+        os.mkdir('scans')
+        exit()
+
+    if len(os.listdir('scans')) == 0:
+        print("Place all your images in the folder 'scans'.")
+        exit()
+    
     # Load the model
     model = YOLO("yolo_finlam_0.pt")
 
@@ -26,6 +36,9 @@ def main():
 
     # Get the date
     date = datetime.today().strftime('%Y-%m-%d_%H-%M-%S')
+
+    if not os.path.exists('results'):
+        os.mkdir('results')
 
     folder = os.path.join("results", date)
     if os.path.exists(folder):
