@@ -1,4 +1,4 @@
-# Prat Project (2025) - Analysis of historical photographs
+# Prat Project (2025-2026) - Analysis of historical photographs
 
 - Goal : extracting images from newspapers scans (mainly designed for pages from 'Le Petit Parisien')
 
