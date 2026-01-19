@@ -1,0 +1,21 @@
+train: images/train
+test: images/test
+val: images/val
+
+names:
+  0: HEADER-TITLE
+  1: HEADER-TEXT
+  2: SECTION-TITLE
+  3: ILLUSTRATION
+  4: ADVERTISEMENT
+  5: ANNOUNCEMENT
+  6: TITLE
+  7: TEXT
+  8: SUBTITLE
+  9: INSIDEHEADING
+  10: CAPTION
+  11: AUTHOR
+  12: TABLE
+  13: ILLUSTRATEDTEXT
+  14: TABLECONTENT
+  15: ASIDE
