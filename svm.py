@@ -1,7 +1,5 @@
-from PIL import Image
 import numpy as np
 from skimage.feature import hog, local_binary_pattern
-import os
 from sklearn.svm import LinearSVC
 
 

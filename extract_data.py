@@ -1,5 +1,4 @@
 from PIL import Image
-from datasets import load_dataset
 from ultralytics import YOLO
 import os
 from datetime import datetime
