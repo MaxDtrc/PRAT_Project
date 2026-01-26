@@ -20,7 +20,7 @@ import pickle
 Script used to train the SVM based on a manual classification of photos/other illustrations
 """
 
-N_BINS = 15 # Number of bins used in the histograms
+N_BINS = 20 # Number of bins used in the histograms
 
 def load_photos():
     """
@@ -54,7 +54,7 @@ def compute_hog(images):
 
     for image in images:
         image = np.array(image.resize((128, 128)))
-        fd = hog(image, orientations=8, pixels_per_cell=(16, 16), cells_per_block=(1, 1), visualize=False)
+        fd = hog(image, orientations=8, pixels_per_cell=(4, 4), cells_per_block=(1, 1), visualize=False)
         fd = np.histogram(fd, bins=N_BINS)[0]
         hog_features.append(fd / np.sum(fd)) # Normalization
 
@@ -125,7 +125,7 @@ def merge_data(hog, lbp, gray, nb_val, std):
     tab_std = tab_std / np.sum(tab_std, axis=1)[:, None]
 
     # Concatenate all data
-    merged_data = np.concatenate([lbp, gray, hog, nb_val, std], axis=1)
+    merged_data = np.concatenate([hog, lbp, gray, nb_val, std], axis=1)
 
     return merged_data
 
@@ -169,7 +169,7 @@ def train_svm():
     print("Training SVM ...")
     for _ in range(300):
         np.random.shuffle(data)
-        clf = LinearSVC(C=100, max_iter=10000)
+        clf = LinearSVC(C=100, max_iter=1000000)
 
         perc = 80
         partition = int(len(photos) + len(illustrations) * perc / 100)
@@ -189,7 +189,7 @@ def train_svm():
         svms.append(clf)
         
 
-    print("Accuracy :", round(np.max(accs), 2))
+    print("Accuracy :", round(np.mean(accs), 2))
 
     # Save the best svm
     with open("svm.pkl", "wb") as f:

@@ -9,14 +9,14 @@ from sklearn.svm import LinearSVC
 Classify an image in one of the two classes : "photo" and "other"
 """
 
-N_BINS = 15 # Number of bins used in the histograms
+N_BINS = 20 # Number of bins used in the histograms
 
 def compute_hog(image):
     """
     Compute the histogram of oriented gradients for an image
     """
     image = np.array(image.resize((128, 128)))
-    fd = hog(image, orientations=8, pixels_per_cell=(16, 16), cells_per_block=(1, 1), visualize=False)
+    fd = hog(image, orientations=8, pixels_per_cell=(4, 4), cells_per_block=(1, 1), visualize=False)
     fd = np.histogram(fd, bins=N_BINS)[0]
     return fd / np.sum(fd) # Normalization
 
@@ -65,7 +65,7 @@ def merge_data(hog, lbp, gray, nb_val, std):
     tab_std = tab_std / np.sum(tab_std)
 
     # Concatenate all data
-    merged_data = np.concatenate([lbp, gray, hog, nb_val, std])
+    merged_data = np.concatenate([hog, lbp, gray, nb_val, std])
 
     return merged_data
 
