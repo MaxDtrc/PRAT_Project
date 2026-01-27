@@ -7,6 +7,8 @@ from svm import classify
 
 # Packages = pyarrow pillow matplotlib numpy ultralytics datasets
 
+RENAME = False # Rename all files in 'scans' with a unique id
+
 def rename_scans():
     """
     Rename all images in 'scans' with a unique id
@@ -26,6 +28,9 @@ def main():
     if len(os.listdir('scans')) == 0:
         print("Place all your images in the folder 'scans'.")
         exit()
+
+    if RENAME:
+        rename_scans() # Rename scans
     
     # Load the model
     model = YOLO("yolo_finlam_0.pt")
