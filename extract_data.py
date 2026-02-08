@@ -14,6 +14,7 @@ def rename_scans():
     Rename all images in 'scans' with a unique id
     """
     i = 0
+
     for file in os.listdir('scans'):
         os.rename(os.path.join('scans', file), os.path.join('scans', str(i) + '.jpeg'))
         i += 1
