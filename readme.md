@@ -24,7 +24,9 @@ project is to contribute to this field by analyzing pages of newspapers and find
 
 - You need an installation of python (tested with python 3.12.3)
 
-- Install the following packages : pip install pillow ultralytics pickle numpy scikit-image scikit-learn
+- Install the following packages : 
+
+    pip install pillow ultralytics pickle numpy scikit-image scikit-learn
 
 
 ## Usage
