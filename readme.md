@@ -7,27 +7,27 @@ project is to contribute to this field by analyzing pages of newspapers and find
 
 ## Code Structure
 
-extract_data.py: main script to extract all images from pages placed in the folder "scans"
+    extract_data.py: main script to extract all images from pages placed in the folder "scans"
 
-simple_classification: script containing the functions for the first classification system, not used in the final project
+    simple_classification: script containing the functions for the first classification system, not used in the final project
 
-svm.py: script containing functions to use the pre-trained SVM
+    svm.py: script containing functions to use the pre-trained SVM
 
-train/
+    train/
 
-    svm/
+        svm/
 
-        eval_svm.py: script used to evaluate the performances of the SVM on a test set
+            eval_svm.py: script used to evaluate the performances of the SVM on a test set
 
-        train_svm.py: script used to train the SVM, exported in svm.pkl
+            train_svm.py: script used to train the SVM, exported in svm.pkl
 
-    yolov11/
+        yolov11/
 
-        finlam: results of the training on the small FINLAM dataset
+            finlam: results of the training on the small FINLAM dataset
 
-        finlam_la_liberte: results of the training on the large FINLAM dataset
-        
-    train_model.py: script used to train YOLOv11 on FINLAM
+            finlam_la_liberte: results of the training on the large FINLAM dataset
+
+        train_model.py: script used to train YOLOv11 on FINLAM
 
 
 ## Installation
