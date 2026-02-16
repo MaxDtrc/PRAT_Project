@@ -14,12 +14,19 @@ simple_classification: script containing the functions for the first classificat
 svm.py: script containing functions to use the pre-trained SVM
 
 train/
+
     svm/
+
         eval_svm.py: script used to evaluate the performances of the SVM on a test set
+
         train_svm.py: script used to train the SVM, exported in svm.pkl
+
     yolov11/
+
         finlam: results of the training on the small FINLAM dataset
+
         finlam_la_liberte: results of the training on the large FINLAM dataset
+        
     train_model.py: script used to train YOLOv11 on FINLAM
 
 
